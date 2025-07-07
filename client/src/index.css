@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 218 91% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 213 100% 96%;
+    --secondary-foreground: 218 91% 54%;
+
+    --muted: 213 100% 96%;
+    --muted-foreground: 0 0% 26%;
+
+    --accent: 213 100% 96%;
+    --accent-foreground: 218 91% 54%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 213 100% 96%;
+    --input: 213 100% 96%;
+    --ring: 218 91% 54%;
+
+    --radius: 0.375rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 218 91% 54%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 213 100% 96%;
+    --sidebar-accent-foreground: 218 91% 54%;
+    --sidebar-border: 213 100% 96%;
+    --sidebar-ring: 218 91% 54%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 218 91% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 10%;
+    --input: 0 0% 10%;
+    --ring: 218 91% 54%;
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 218 91% 54%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 10%;
+    --sidebar-ring: 218 91% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: "Poppins", sans-serif;
+  }
+
+  /* Ensure all text elements use Poppins */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Poppins", sans-serif;
+  }
+
+  p,
+  span,
+  div,
+  label,
+  input,
+  textarea,
+  select,
+  button {
+    font-family: "Poppins", sans-serif;
+  }
+
+  /* Override any potential system font fallbacks */
+  .font-sans {
+    font-family: "Poppins", sans-serif !important;
+  }
+
+  /* Ensure consistent font weights */
+  .font-medium {
+    font-weight: 500;
+  }
+
+  .font-semibold {
+    font-weight: 600;
+  }
+
+  .font-bold {
+    font-weight: 700;
+  }
+
+  /* Badge and button specific styling */
+  .badge,
+  [role="badge"] {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+  }
+
+  /* Form elements */
+  input,
+  textarea,
+  select,
+  option {
+    font-family: "Poppins", sans-serif;
+  }
+
+  /* Dropdown menus and selects */
+  [role="option"],
+  [role="listbox"],
+  [role="combobox"] {
+    font-family: "Poppins", sans-serif;
+  }
+}
