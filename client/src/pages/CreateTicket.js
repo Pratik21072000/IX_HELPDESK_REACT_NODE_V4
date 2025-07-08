@@ -263,7 +263,7 @@ const CreateTicket = () => {
               )}
 
               {/* Status - Only visible for managers (HR, Finance, Admin) */}
-              {isUserManager(user) && (
+              {user?.role === "EMPLOYEE" && (
                 <div className="animate-in slide-in-from-top duration-300">
                   <Label
                     htmlFor="status"

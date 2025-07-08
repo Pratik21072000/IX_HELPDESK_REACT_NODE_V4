@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import { Button } from "../ui/button";
 import { LayoutDashboard, Ticket, Plus, User, LogOut } from "lucide-react";
+import brandLogo from "../../assets/images/IX.png";
 
 const Sidebar = () => {
   const { user, logout } = useAuth();
@@ -45,7 +46,7 @@ const Sidebar = () => {
     <div className="fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-200 flex flex-col">
       {/* Logo */}
       <div className="p-6 border-b border-gray-200">
-        <h2 className="text-xl font-bold text-incub-blue-600">TicketFlow</h2>
+        <img src={brandLogo} alt="brand_logo" width={200} />
       </div>
 
       {/* User Info */}

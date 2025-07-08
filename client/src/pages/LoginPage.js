@@ -13,6 +13,7 @@ import {
 import { useAuth } from "../contexts/AuthContext";
 import { Alert, AlertDescription } from "../components/ui/alert";
 import { Shield } from "lucide-react";
+import brandLogo from "../../src/assets/images/IX2.png";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -61,9 +62,10 @@ const LoginPage = () => {
         <div className="text-center space-y-3">
           <div className="flex justify-center">
             <div className="p-4 rounded-2xl shadow-lg bg-white">
-              <h2 className="text-2xl font-bold text-incub-blue-600">
+              {/* <h2 className="text-2xl font-bold text-incub-blue-600">
                 TicketFlow
-              </h2>
+              </h2> */}
+              <img src={brandLogo} alt="branglogo" width={100} />
             </div>
           </div>
           <h1 className="text-3xl font-heading font-bold text-black tracking-tight">

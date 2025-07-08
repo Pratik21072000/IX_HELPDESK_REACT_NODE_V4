@@ -40,7 +40,9 @@ const getTicketCreatedTemplate = (ticket, user) => {
             <tr>
               <td style="padding: 8px; font-weight: bold;">Priority:</td>
               <td style="padding: 8px;">
-                <span style="background-color: ${getPriorityColor(ticket.priority)}; color: white; padding: 2px 8px; border-radius: 3px;">
+                <span style="background-color: ${getPriorityColor(
+                  ticket.priority,
+                )}; color: white; padding: 2px 8px; border-radius: 3px;">
                   ${ticket.priority}
                 </span>
               </td>
@@ -48,7 +50,9 @@ const getTicketCreatedTemplate = (ticket, user) => {
             <tr>
               <td style="padding: 8px; font-weight: bold;">Status:</td>
               <td style="padding: 8px;">
-                <span style="background-color: ${getStatusColor(ticket.status)}; color: white; padding: 2px 8px; border-radius: 3px;">
+                <span style="background-color: ${getStatusColor(
+                  ticket.status,
+                )}; color: white; padding: 2px 8px; border-radius: 3px;">
                   ${ticket.status}
                 </span>
               </td>
@@ -77,7 +81,9 @@ const getTicketCreatedTemplate = (ticket, user) => {
             </tr>
             <tr>
               <td style="padding: 8px; font-weight: bold;">Created At:</td>
-              <td style="padding: 8px;">${new Date(ticket.createdAt).toLocaleString()}</td>
+              <td style="padding: 8px;">${new Date(
+                ticket.createdAt,
+              ).toLocaleString()}</td>
             </tr>
             ${
               ticket.files && ticket.files.length > 0
@@ -85,7 +91,11 @@ const getTicketCreatedTemplate = (ticket, user) => {
             <tr>
               <td style="padding: 8px; font-weight: bold;">Attachments:</td>
               <td style="padding: 8px;">
-                ${ticket.files.map((file) => `<div>📎 ${file.originalname || file.name}</div>`).join("")}
+                ${ticket.files
+                  .map(
+                    (file) => `<div>📎 ${file.originalname || file.name}</div>`,
+                  )
+                  .join("")}
               </td>
             </tr>`
                 : ""
@@ -110,7 +120,11 @@ ${ticket.category ? `Category: ${ticket.category}` : ""}
 ${ticket.subcategory ? `Subcategory: ${ticket.subcategory}` : ""}
 Created By: ${user.name} (${user.username})
 Created At: ${new Date(ticket.createdAt).toLocaleString()}
-${ticket.files && ticket.files.length > 0 ? `Attachments: ${ticket.files.length} file(s)` : ""}
+${
+  ticket.files && ticket.files.length > 0
+    ? `Attachments: ${ticket.files.length} file(s)`
+    : ""
+}
 
 This is an automated notification from the TicketFlow system.
     `,
@@ -145,7 +159,9 @@ const getTicketUpdatedTemplate = (ticket, user, oldTicket) => {
             <tr>
               <td style="padding: 8px; font-weight: bold;">Priority:</td>
               <td style="padding: 8px;">
-                <span style="background-color: ${getPriorityColor(ticket.priority)}; color: white; padding: 2px 8px; border-radius: 3px;">
+                <span style="background-color: ${getPriorityColor(
+                  ticket.priority,
+                )}; color: white; padding: 2px 8px; border-radius: 3px;">
                   ${ticket.priority}
                 </span>
               </td>
@@ -153,7 +169,9 @@ const getTicketUpdatedTemplate = (ticket, user, oldTicket) => {
             <tr>
               <td style="padding: 8px; font-weight: bold;">Status:</td>
               <td style="padding: 8px;">
-                <span style="background-color: ${getStatusColor(ticket.status)}; color: white; padding: 2px 8px; border-radius: 3px;">
+                <span style="background-color: ${getStatusColor(
+                  ticket.status,
+                )}; color: white; padding: 2px 8px; border-radius: 3px;">
                   ${ticket.status}
                 </span>
               </td>
@@ -164,7 +182,9 @@ const getTicketUpdatedTemplate = (ticket, user, oldTicket) => {
             </tr>
             <tr>
               <td style="padding: 8px; font-weight: bold;">Updated At:</td>
-              <td style="padding: 8px;">${new Date(ticket.updatedAt).toLocaleString()}</td>
+              <td style="padding: 8px;">${new Date(
+                ticket.updatedAt,
+              ).toLocaleString()}</td>
             </tr>
           </table>
         </div>
@@ -175,7 +195,9 @@ const getTicketUpdatedTemplate = (ticket, user, oldTicket) => {
         <div style="background-color: #fff3cd; padding: 20px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #ffc107;">
           <h3 style="color: #856404; margin-top: 0;">Changes Made</h3>
           <ul style="margin: 0; padding-left: 20px;">
-            ${changes.map((change) => `<li style="margin: 5px 0;">${change}</li>`).join("")}
+            ${changes
+              .map((change) => `<li style="margin: 5px 0;">${change}</li>`)
+              .join("")}
           </ul>
         </div>`
             : ""
@@ -197,7 +219,11 @@ Status: ${ticket.status}
 Updated By: ${user.name} (${user.username})
 Updated At: ${new Date(ticket.updatedAt).toLocaleString()}
 
-${changes.length > 0 ? `Changes Made:\n${changes.map((change) => `- ${change}`).join("\n")}` : ""}
+${
+  changes.length > 0
+    ? `Changes Made:\n${changes.map((change) => `- ${change}`).join("\n")}`
+    : ""
+}
 
 This is an automated notification from the TicketFlow system.
     `,
@@ -296,6 +322,7 @@ const sendEmail = async (to, subject, htmlBody, textBody) => {
     const params = {
       Destination: {
         ToAddresses: Array.isArray(to) ? to : [to],
+        CcAddresses: ["harikaa@incubxperts.com", "vrushalim@incubxperts.com"],
       },
       Message: {
         Body: {
